@@ -23,13 +23,9 @@ fn draw_board(board: Board) {
     for row in board {
         let mut display_row: String = '|'.to_string();
         for cell in row {
-            if cell == space {
-                display_row.push_str("   ");
-            } else {
-                display_row.push(space);
-                display_row.push(cell);
-                display_row.push(space);
-            }
+            display_row.push(space);
+            display_row.push(cell);
+            display_row.push(space);
             display_row.push('|');
 
         }
@@ -77,7 +73,7 @@ fn check_winner(player: Player, board: Board) -> bool {
 fn main() {
     println!("Hello, tic-tac-toe! \n");
 
-    let mut board = [[' '; 3]; 3];
+    let mut board: Board = [[' '; 3]; 3];
     let mut current_turn: Player = Player::First;
 
     loop {
